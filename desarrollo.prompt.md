@@ -1328,13 +1328,13 @@ Ingresa el nombre de la ciudad: buenos aires
 ❌ Error: API key inválida. Verifica tu configuración en el archivo .env
 </user>
 <assistant>
-I can see you're getting an "API key inválida" error. Looking at your .env file, I need to check if the API key is properly configured. I see you have an API key configured (`1b30615abfd247baa223f4b97c76b0c8`). The error suggests this key is invalid. This typically happens because:
+I can see you're getting an "API key inválida" error. Looking at your .env file, I need to check if the API key is properly configured. I see you have an API key configured. The error suggests this key is invalid. This typically happens because:
 
 1. **New API keys need activation time** - OpenWeatherMap API keys can take a few minutes to a few hours to become active after creation
 2. **The key might be incorrect or expired**
 3. **Rate limits might be exceeded** (unlikely for a new key)
 
-Let me verify the API key is being loaded correctly by testing the configuration: The API key `1b30615abfd247baa223f4b97c76b0c8` is loaded and has the correct format (32 characters). The "invalid API key" error is most likely because:
+Let me verify the API key is being loaded correctly by testing the configuration: The API key is loaded and has the correct format (32 characters). The "invalid API key" error is most likely because:
 
 **The API key is newly created and not yet activated**. OpenWeatherMap typically takes **10 minutes to 2 hours** to activate new API keys.
 
@@ -1344,7 +1344,7 @@ Let me verify the API key is being loaded correctly by testing the configuration
 2. **Verify the key** at https://home.openweathermap.org/api_keys - check if it shows as "Active"
 3. **Test the key manually** with this URL in your browser:
    ```
-   https://api.openweathermap.org/data/2.5/weather?q=London&appid=1b30615abfd247baa223f4b97c76b0c8&units=metric&lang=es
+   https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY&units=metric&lang=es
    ```
    If you see weather data (JSON), the key is working. If you see `{"cod":401,"message":"Invalid API key..."}`, it's still activating.
 

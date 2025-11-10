@@ -297,7 +297,62 @@ Las contribuciones son bienvenidas. Por favor:
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
-## 📄 Licencia
+## � Seguridad
+
+### ⚠️ Protección de API Keys
+
+**NUNCA comitees tu archivo `.env` al repositorio.** Este archivo contiene tu API key personal y debe mantenerse privado.
+
+**Verificaciones de seguridad:**
+
+```powershell
+# Verificar que .env esté en .gitignore
+Select-String -Path .gitignore -Pattern "^\.env$"
+
+# Verificar que .env NO esté siendo trackeado
+git ls-files | Select-String "\.env$"
+# (No debe mostrar resultados)
+
+# Verificar que .env NO esté en el historial
+git log --all --full-history -- .env
+# (No debe mostrar commits)
+```
+
+### 🚨 Si expusiste accidentalmente tu API key:
+
+1. **Revoca la API key inmediatamente:**
+   - Ve a https://home.openweathermap.org/api_keys
+   - Elimina la API key comprometida
+   - Genera una nueva API key
+
+2. **Limpia el historial de git (si fue commiteada):**
+   ```powershell
+   # ADVERTENCIA: Esto reescribe el historial
+   git filter-branch --force --index-filter \
+     "git rm --cached --ignore-unmatch .env" \
+     --prune-empty --tag-name-filter cat -- --all
+   
+   # Force push (si ya fue pusheada)
+   git push origin --force --all
+   ```
+
+3. **Usa git-secrets para prevenir futuros incidentes:**
+   ```powershell
+   # Instalar git-secrets
+   git secrets --install
+   git secrets --register-aws
+   ```
+
+### ✅ Buenas prácticas:
+
+- ✅ Siempre usa `.env` para secretos (ya está en `.gitignore`)
+- ✅ Usa `.env.example` como plantilla (sin valores reales)
+- ✅ Nunca hardcodees API keys en el código
+- ✅ Revisa commits antes de hacer push
+- ✅ Usa herramientas como `git-secrets` o `truffleHog`
+- ✅ Rota API keys periódicamente
+
+## �📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 

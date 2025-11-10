@@ -1139,7 +1139,7 @@ notepad .env
 code .env
 
 # 3. Reemplazar "your_api_key_here" con tu API key real
-# OPENWEATHER_API_KEY=1b30615abfd247baa223f4b97c76b0c8
+# OPENWEATHER_API_KEY=abc123tu_api_key_de_32_caracteres_aqui
 
 # 4. Verificar que el archivo existe y tiene contenido
 type .env

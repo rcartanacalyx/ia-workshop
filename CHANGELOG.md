@@ -8,6 +8,13 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 ## [Unreleased]
 
 ### Added
+- 🔒 **SECURITY.md**: Guía completa de seguridad y política de reporte de vulnerabilidades
+- 🔒 Sección de seguridad en README.md con buenas prácticas
+- 🔒 Instrucciones para revocar y rotar API keys comprometidas
+- 🔒 Comandos de verificación de seguridad de credenciales
+- 🔒 Guía de remediación para API keys expuestas
+- 🔒 Checklist de seguridad pre-commit
+- 🔒 Documentación de herramientas (git-secrets, TruffleHog)
 - Documentación completa de on-boarding en ONBOARDING.md
 - Docstrings detallados en todos los módulos, clases y funciones
 - Comentarios explicativos en código complejo
@@ -16,6 +23,15 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 ### Changed
 - Mejorados los docstrings con ejemplos de uso y notas adicionales
 - Documentación de módulos con información de arquitectura
+
+### Security
+- ⚠️ **ACCIÓN REQUERIDA**: Si usas una API key que fue mencionada en documentación o conversaciones, revocarla inmediatamente
+- ✅ Verificado que `.env` está en `.gitignore` (línea 121)
+- ✅ Verificado que `.env` NO está siendo trackeado por git
+- ✅ Verificado que `.env` NO está en el historial de commits
+- 📝 Agregadas instrucciones de seguridad en SECURITY.md
+- 📝 Agregada sección de seguridad en README.md
+- 🔒 Eliminadas todas las referencias a API keys reales de la documentación
 
 ## [1.0.0] - 2025-11-10
 
